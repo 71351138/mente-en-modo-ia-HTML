@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mente en Modo IA | La tecnología te ayuda, tu mente decide</title>
+  <meta name="description" content="Proyecto social sobre salud mental y uso responsable de la inteligencia artificial en estudiantes universitarios de 18 a 25 años." />
+
+  <!-- Tipografías Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDFB',
+              100: '#FFF7F5',
+              200: '#FFECE8',
+            },
+            rosewater: {
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              300: '#FDA4AF',
+              400: '#FB7185',
+              500: '#F43F5E',
+              600: '#E11D48',
+            },
+            coral: {
+              400: '#FF7E6B',
+              500: '#F25C54',
+              600: '#D9433B',
+            },
+            ink: {
+              700: '#4A3F45',
+              800: '#33292E',
+              900: '#1F181C',
+            }
+          },
+          boxShadow: {
+            'soft': '0 12px 35px -8px rgba(242, 92, 84, 0.12)',
+            'card': '0 8px 24px -4px rgba(51, 41, 46, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados complementarios */
+    body {
+      background-color: #FFFDFB;
+      color: #33292E;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Animaciones suaves para ilustraciones */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 0.75; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    .animate-float {
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+
+    .animate-pulse-soft {
+      animation: pulseSoft 4s ease-in-out infinite;
+    }
+
+    /* Gradientes pastel cálidos */
+    .bg-hero-gradient {
+      background: radial-gradient(circle at 85% 20%, #FFE4E6 0%, #FFF7F5 45%, #FFFDFB 100%);
+    }
+
+    .bg-soft-card {
+      background: linear-gradient(145deg, #FFFFFF 0%, #FFF8F7 100%);
+    }
+
+    /* Barra de progreso animada */
+    .progress-bar-fill {
+      transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Personalización de scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF7F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FDA4AF;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F43F5E;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-rosewater-200 selection:text-ink-900">
+
+  <!-- ===================================================================== -->
+  <!-- 1. BARRA DE NAVEGACIÓN RESPONSIVA                                     -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-rosewater-100">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-rosewater-400 to-coral-500 flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform">
+          <!-- Icono SVG minimalista de cerebro + chispa -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.54Z"/>
+            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.54Z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-heading font-extrabold text-lg tracking-tight text-ink-900 block leading-none">Mente en Modo IA</span>
+          <span class="text-[11px] font-medium text-coral-500 tracking-wide">Salud Mental &amp; Criterio Propio</span>
+        </div>
+      </a>
+
+      <!-- Enlaces Desktop -->
+      <div class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#inicio" class="px-3.5 py-2 rounded-xl text-sm font-medium text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">Inicio</a>
+        <a href="#proposito" class="px-3.5 py-2 rounded-xl text-sm font-medium text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">Propósito</a>
+        <a href="#diagnostico" class="px-3.5 py-2 rounded-xl text-sm font-medium text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">Datos y Diagnóstico</a>
+        <a href="#autoevaluacion" class="px-3.5 py-2 rounded-xl text-sm font-medium text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">Autoevaluación IA</a>
+        <a href="#habitos" class="px-3.5 py-2 rounded-xl text-sm font-medium text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">Hábitos Saludables</a>
+        <a href="#compromiso" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-rosewater-500 to-coral-500 hover:from-rosewater-600 hover:to-coral-600 shadow-soft transition-all">Compromiso</a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" aria-label="Abrir menú de navegación" class="md:hidden p-2.5 rounded-xl text-ink-800 hover:bg-rosewater-100 transition-colors">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-rosewater-100 px-4 pt-2 pb-5 space-y-1.5 shadow-lg">
+      <a href="#inicio" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink-800 hover:bg-rosewater-100/70">Inicio</a>
+      <a href="#proposito" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink-800 hover:bg-rosewater-100/70">Propósito y Público</a>
+      <a href="#diagnostico" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink-800 hover:bg-rosewater-100/70">Datos y Diagnóstico</a>
+      <a href="#autoevaluacion" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink-800 hover:bg-rosewater-100/70">Termómetro de Equilibrio IA</a>
+      <a href="#habitos" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink-800 hover:bg-rosewater-100/70">Hábitos Saludables</a>
+      <a href="#compromiso" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-rosewater-500 to-coral-500 text-center mt-2">Generar Compromiso Digital</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================== -->
+    <!-- 2. SECCIÓN HERO (INICIO)                                              -->
+    <!-- ===================================================================== -->
+    <section id="inicio" class="bg-hero-gradient relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-24 lg:py-24">
+      <!-- Elementos decorativos orgánicos -->
+      <div class="absolute -top-24 -left-24 w-72 h-72 bg-rosewater-200/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-coral-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Columna de Texto -->
+          <div class="lg:col-span-7 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rosewater-100/90 border border-rosewater-200 text-coral-600 text-xs sm:text-sm font-semibold mb-6">
+              <span class="w-2 h-2 rounded-full bg-coral-500 animate-ping"></span>
+              Proyecto Social Universitario • Jóvenes de 18 a 25 años
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-900 tracking-tight leading-[1.12] mb-4">
+              Mente en <span class="text-transparent bg-clip-text bg-gradient-to-r from-rosewater-500 to-coral-500">Modo IA</span>
+            </h1>
+
+            <p class="text-xl sm:text-2xl font-heading font-bold text-ink-800 mb-5">
+              “La tecnología te ayuda, tu mente decide”
+            </p>
+
+            <p class="text-base sm:text-lg text-ink-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+              Promovemos la salud mental y el uso responsable de la inteligencia artificial entre estudiantes universitarios, fortaleciendo la <strong>autonomía</strong>, el <strong>pensamiento crítico</strong> y los <strong>hábitos digitales saludables</strong> frente a la presión académica.
+            </p>
+
+            <!-- Botones de Acción -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#autoevaluacion" class="w-full sm:w-auto px-7 py-4 rounded-2xl font-heading font-bold text-white bg-gradient-to-r from-rosewater-500 to-coral-500 hover:from-rosewater-600 hover:to-coral-600 shadow-soft hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5">
+                <span>Medir mi Equilibrio IA</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a href="#diagnostico" class="w-full sm:w-auto px-7 py-4 rounded-2xl font-heading font-bold text-ink-800 bg-white border-2 border-rosewater-200 hover:border-rosewater-400 hover:bg-rosewater-100/40 transition-all flex items-center justify-center gap-2">
+                <span>Explorar Diagnóstico</span>
+              </a>
+            </div>
+
+            <!-- Pilares rápidos -->
+            <div class="mt-10 pt-8 border-t border-rosewater-200/70 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+              <div>
+                <p class="font-heading font-extrabold text-xl sm:text-2xl text-coral-500">Autonomía</p>
+                <p class="text-xs sm:text-sm text-ink-700">Criterio propio activo</p>
+              </div>
+              <div>
+                <p class="font-heading font-extrabold text-xl sm:text-2xl text-rosewater-500">Calma</p>
+                <p class="text-xs sm:text-sm text-ink-700">Bienestar emocional</p>
+              </div>
+              <div>
+                <p class="font-heading font-extrabold text-xl sm:text-2xl text-ink-900">Equilibrio</p>
+                <p class="text-xs sm:text-sm text-ink-700">IA como complemento</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Ilustración SVG Personalizada (Cerebro Universitario + Tecnología en Armonía) -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md animate-float">
+              <!-- Tarjeta contenedor suave -->
+              <div class="bg-white/80 backdrop-blur-sm border border-rosewater-200 rounded-[2.25rem] p-6 sm:p-8 shadow-soft">
+                <svg viewBox="0 0 420 380" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de un cerebro universitario con lentes leyendo un libro en equilibrio con la tecnología">
+                  <!-- Fondo orgánico pastel -->
+                  <circle cx="210" cy="195" r="145" fill="#FFE4E6" opacity="0.65" />
+                  <circle cx="295" cy="105" r="48" fill="#FECDD3" opacity="0.55" />
+                  <circle cx="110" cy="275" r="42" fill="#FFECE8" />
+
+                  <!-- Rayos de ideas creativas -->
+                  <path d="M88 122L60 104" stroke="#FB7185" stroke-width="6" stroke-linecap="round" />
+                  <path d="M78 162L45 162" stroke="#FF7E6B" stroke-width="6" stroke-linecap="round" />
+                  <path d="M92 202L64 220" stroke="#FDA4AF" stroke-width="6" stroke-linecap="round" />
+
+                  <!-- Destellos IA flotantes (nodos suaves) -->
+                  <g class="animate-pulse-soft">
+                    <rect x="305" y="138" width="56" height="44" rx="14" fill="#FFFFFF" stroke="#FDA4AF" stroke-width="3" />
+                    <path d="M333 149L336 157L344 160L336 163L333 171L330 163L322 160L330 157L333 149Z" fill="#F25C54" />
+                  </g>
+
+                  <!-- Piernas del personaje cerebro -->
+                  <path d="M188 268V322C188 327 183 331 176 331H168" stroke="#F48FB1" stroke-width="10" stroke-linecap="round" />
+                  <path d="M236 268V322C236 327 241 331 248 331H256" stroke="#F48FB1" stroke-width="10" stroke-linecap="round" />
+
+                  <!-- Cuerpo Cerebro Pastel -->
+                  <path d="M148 190C132 184 125 166 134 150C131 132 145 114 164 114C172 98 194 92 212 100C230 92 252 98 260 114C279 114 293 132 290 150C299 166 292 184 276 190C284 208 275 230 257 236C250 254 230 264 212 258C194 264 174 254 167 236C149 230 140 208 148 190Z" fill="#FFB5C2" stroke="#F4729B" stroke-width="4" />
+
+                  <!-- Pliegues suaves del cerebro -->
+                  <path d="M174 134C184 128 196 132 200 142" stroke="#F4729B" stroke-width="3.5" stroke-linecap="round" />
+                  <path d="M248 134C238 128 226 132 222 142" stroke="#F4729B" stroke-width="3.5" stroke-linecap="round" />
+                  <path d="M158 172C166 168 174 172 176 180" stroke="#F4729B" stroke-width="3.5" stroke-linecap="round" />
+
+                  <!-- Birrete Universitario -->
+                  <polygon points="212,56 146,84 212,110 278,84" fill="#4A3F45" />
+                  <path d="M174 96V113C174 120 250 120 250 113V96" fill="#33292E" />
+                  <path d="M266 89V124" stroke="#F25C54" stroke-width="3.5" stroke-linecap="round" />
+                  <circle cx="266" cy="127" r="5" fill="#F25C54" />
+
+                  <!-- Lentes de estudio -->
+                  <circle cx="190" cy="186" r="22" fill="#FFFFFF" fill-opacity="0.7" stroke="#33292E" stroke-width="4.5" />
+                  <circle cx="242" cy="186" r="22" fill="#FFFFFF" fill-opacity="0.7" stroke="#33292E" stroke-width="4.5" />
+                  <path d="M212 186H220" stroke="#33292E" stroke-width="4.5" stroke-linecap="round" />
+
+                  <!-- Ojos amigables -->
+                  <circle cx="190" cy="186" r="5.5" fill="#33292E" />
+                  <circle cx="192" cy="184" r="1.8" fill="#FFFFFF" />
+                  <circle cx="242" cy="186" r="5.5" fill="#33292E" />
+                  <circle cx="244" cy="184" r="1.8" fill="#FFFFFF" />
+
+                  <!-- Sonrisa tranquila -->
+                  <path d="M203 216C210 224 222 224 229 216" stroke="#33292E" stroke-width="4" stroke-linecap="round" />
+
+                  <!-- Libro abierto sostenido -->
+                  <path d="M236 226L284 212L302 258L254 272L236 226Z" fill="#FFFDFB" stroke="#33292E" stroke-width="3.5" stroke-linejoin="round" />
+                  <path d="M284 212L328 224L344 268L302 258L284 212Z" fill="#FFE4E6" stroke="#33292E" stroke-width="3.5" stroke-linejoin="round" />
+                  <!-- Brazo sosteniendo libro -->
+                  <path d="M172 222C194 244 224 248 248 242" stroke="#F4729B" stroke-width="9" stroke-linecap="round" />
+                </svg>
+
+                <!-- Etiqueta inferior de la ilustración -->
+                <div class="mt-3 bg-cream-100 border border-rosewater-200 rounded-2xl p-3.5 flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs sm:text-sm font-semibold text-ink-800">Estado: Pensamiento Crítico Activo</span>
+                  </div>
+                  <span class="text-xs font-bold text-coral-600 bg-white px-2.5 py-1 rounded-lg border border-rosewater-200">100% Tú</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 3. JUSTIFICACIÓN Y PÚBLICO OBJETIVO                                   -->
+    <!-- ===================================================================== -->
+    <section id="proposito" class="py-16 sm:py-24 bg-white border-t border-rosewater-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Encabezado de sección -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <span class="inline-block px-3.5 py-1.5 rounded-full bg-rosewater-100 text-coral-600 text-xs font-bold uppercase tracking-wider mb-3">
+            Justificación del Proyecto
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-900 mb-4">
+            ¿Por qué hablar de salud mental en tiempos de IA?
+          </h2>
+          <p class="text-base sm:text-lg text-ink-700 leading-relaxed">
+            La inteligencia artificial facilita tareas y optimiza tiempos, pero su uso sin orientación puede generar desgaste emocional y desconexión con nuestras propias capacidades.
+          </p>
+        </div>
+
+        <!-- Comparativa Visual: Riesgos Emocionales vs. Uso Equilibrado -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <!-- Tarjeta 1: Desafíos emocionales y cognitivos -->
+          <div class="rounded-3xl bg-cream-100 border border-rosewater-200 p-7 sm:p-9 shadow-card">
+            <div class="w-12 h-12 rounded-2xl bg-rosewater-200/80 text-rosewater-600 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-ink-900 mb-3">Desafíos cuando no hay equilibrio</h3>
+            <p class="text-sm sm:text-base text-ink-700 mb-6">
+              Recurrir automáticamente a la IA ante cada entrega o duda académica puede desencadenar:
+            </p>
+            <ul class="space-y-3.5">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-rosewater-200 text-rosewater-600 flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+                <span class="text-sm sm:text-base text-ink-800"><strong>Dependencia tecnológica:</strong> Sentir que no puedes iniciar o resolver un trabajo sin consultar primero un chatbot.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-rosewater-200 text-rosewater-600 flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+                <span class="text-sm sm:text-base text-ink-800"><strong>Ansiedad por actualización:</strong> Agobio constante por dominar cada nueva herramienta o ritmo digital.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-rosewater-200 text-rosewater-600 flex items-center justify-center text-xs font-bold shrink-0">✕</span>
+                <span class="text-sm sm:text-base text-ink-800"><strong>Comparación y pérdida de confianza:</strong> Dudar de tu propio talento al comparar tus borradores con respuestas instantáneas.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tarjeta 2: Nuestra propuesta de uso responsable -->
+          <div class="rounded-3xl bg-gradient-to-br from-rosewater-500 to-coral-500 text-white p-7 sm:p-9 shadow-soft">
+            <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm text-white flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3">Nuestro propósito: Uso consciente</h3>
+            <p class="text-sm sm:text-base text-white/90 mb-6">
+              Recordamos que la IA debe ser un apoyo para la creatividad y el aprendizaje, nunca un reemplazo de tu criterio ni de tu valor personal:
+            </p>
+            <ul class="space-y-3.5">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-white text-coral-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                <span class="text-sm sm:text-base"><strong>Reconocer emociones:</strong> Identificar cuándo usamos la IA por curiosidad y cuándo por estrés o miedo a equivocarnos.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-white text-coral-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                <span class="text-sm sm:text-base"><strong>Pensamiento crítico activo:</strong> Cuestionar, contrastar y dar voz propia a cada resultado generado.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-white text-coral-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                <span class="text-sm sm:text-base"><strong>Autonomía académica:</strong> Confiar en tus ideas antes de encender la pantalla.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Público Objetivo: 5 Características del Universitario (18 a 25 años) -->
+        <div class="bg-cream-100/80 border border-rosewater-200 rounded-[2rem] p-7 sm:p-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-coral-600">Público Objetivo</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-900 mt-1">
+                Estudiantes universitarios de 18 a 25 años
+              </h3>
+            </div>
+            <p class="text-sm text-ink-700 max-w-md">
+              Una etapa clave de formación académica y desarrollo personal donde se consolidan los hábitos profesionales y emocionales.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <!-- Característica 1 -->
+            <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-card hover:-translate-y-1 transition-transform">
+              <div class="w-9 h-9 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-extrabold flex items-center justify-center mb-3">01</div>
+              <h4 class="font-bold text-ink-900 text-base mb-1.5">Apoyo cotidiano</h4>
+              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">Utilizan herramientas como ChatGPT o Gemini para resolver dudas y organizar información académica.</p>
+            </div>
+            <!-- Característica 2 -->
+            <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-card hover:-translate-y-1 transition-transform">
+              <div class="w-9 h-9 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-extrabold flex items-center justify-center mb-3">02</div>
+              <h4 class="font-bold text-ink-900 text-base mb-1.5">Alta exigencia</h4>
+              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">Enfrentan evaluaciones continuas, proyectos complejos y plazos de entrega ajustados.</p>
+            </div>
+            <!-- Característica 3 -->
+            <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-card hover:-translate-y-1 transition-transform">
+              <div class="w-9 h-9 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-extrabold flex items-center justify-center mb-3">03</div>
+              <h4 class="font-bold text-ink-900 text-base mb-1.5">Presión por rendir</h4>
+              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">Sienten la necesidad de obtener buenos resultados y mantenerse siempre actualizados.</p>
+            </div>
+            <!-- Característica 4 -->
+            <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-card hover:-translate-y-1 transition-transform">
+              <div class="w-9 h-9 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-extrabold flex items-center justify-center mb-3">04</div>
+              <h4 class="font-bold text-ink-900 text-base mb-1.5">Búsqueda de balance</h4>
+              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">Necesitan aprender a equilibrar la velocidad tecnológica con su bienestar mental y descanso.</p>
+            </div>
+            <!-- Característica 5 -->
+            <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-card hover:-translate-y-1 transition-transform sm:col-span-2 lg:col-span-1">
+              <div class="w-9 h-9 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-extrabold flex items-center justify-center mb-3">05</div>
+              <h4 class="font-bold text-ink-900 text-base mb-1.5">Confianza propia</h4>
+              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">Requieren fortalecer su autonomía, pensamiento crítico y seguridad en sus habilidades.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 4. INVESTIGACIÓN PREVIA Y DIAGNÓSTICO INTERACTIVO                     -->
+    <!-- ===================================================================== -->
+    <section id="diagnostico" class="py-16 sm:py-24 bg-cream-100/60 border-t border-rosewater-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Título -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <span class="inline-block px-3.5 py-1.5 rounded-full bg-rosewater-100 text-coral-600 text-xs font-bold uppercase tracking-wider mb-3">
+            Investigación Previa y Diagnóstico
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-900 mb-4">
+            ¿Por qué necesitamos hablar sobre esto?
+          </h2>
+          <p class="text-base sm:text-lg text-ink-700">
+            Los datos globales y nacionales muestran una acelerada adopción de la IA en las aulas junto a importantes retos de salud emocional juvenil.
+          </p>
+        </div>
+
+        <!-- 4 Tarjetas de Estadísticas Destacadas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+          <!-- Stat 1 -->
+          <div class="bg-white rounded-3xl p-6 border border-rosewater-200 shadow-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-rosewater-100 text-rosewater-600">OMS (2025)</span>
+              <span class="text-xs text-ink-700">Salud Global</span>
+            </div>
+            <p class="font-heading font-extrabold text-4xl text-ink-900 mb-1">1 de cada 7</p>
+            <p class="text-xs font-semibold text-coral-600 mb-2">(14.3% a nivel mundial)</p>
+            <p class="text-sm text-ink-700 leading-snug">Adolescentes de 10 a 19 años presenta algún trastorno mental.</p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="bg-white rounded-3xl p-6 border border-rosewater-200 shadow-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-coral-400/20 text-coral-600">ENDES / INSM</span>
+              <span class="text-xs text-ink-700">Perú</span>
+            </div>
+            <p class="font-heading font-extrabold text-4xl text-coral-500 mb-1">32.3%</p>
+            <p class="text-xs font-semibold text-ink-700 mb-2">Jóvenes de 15 a 29 años</p>
+            <p class="text-sm text-ink-700 leading-snug">Reportó problemas de salud mental o emocional en los últimos 12 meses.</p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="bg-white rounded-3xl p-6 border border-rosewater-200 shadow-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-rosewater-100 text-rosewater-600">HEPI / Kortext</span>
+              <span class="text-xs text-ink-700">2024 vs 2025</span>
+            </div>
+            <p class="font-heading font-extrabold text-4xl text-rosewater-500 mb-1">92%</p>
+            <p class="text-xs font-semibold text-ink-700 mb-2">Subió desde 66% en 2024</p>
+            <p class="text-sm text-ink-700 leading-snug">De universitarios encuestados utilizó herramientas de IA en 2025.</p>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="bg-white rounded-3xl p-6 border border-rosewater-200 shadow-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-coral-400/20 text-coral-600">HEPI / Kortext</span>
+              <span class="text-xs text-ink-700">Evaluaciones</span>
+            </div>
+            <p class="font-heading font-extrabold text-4xl text-ink-900 mb-1">88%</p>
+            <p class="text-xs font-semibold text-coral-600 mb-2">Uso académico directo</p>
+            <p class="text-sm text-ink-700 leading-snug">Utilizó IA generativa específicamente en trabajos evaluados.</p>
+          </div>
+        </div>
+
+        <!-- Visualización Gráfica CSS/SVG + Tabla Filtrable -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14">
+          <!-- Panel Izquierdo: Gráficos Visuales Comparativos -->
+          <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-rosewater-200 shadow-card flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-ink-900 mb-2">Indicadores Clave en Perspectiva</h3>
+              <p class="text-sm text-ink-700 mb-6">Comparativa visual del crecimiento en el uso universitario de IA y la incidencia en salud emocional juvenil.</p>
+
+              <!-- Barras de progreso visuales -->
+              <div class="space-y-5">
+                <div>
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span class="text-ink-800">Universitarios usando IA (2024)</span>
+                    <span class="text-ink-700">66%</span>
+                  </div>
+                  <div class="w-full h-3.5 bg-rosewater-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-rosewater-300 rounded-full" style="width: 66%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span class="text-ink-800">Universitarios usando IA (2025)</span>
+                    <span class="text-coral-600 font-bold">92%</span>
+                  </div>
+                  <div class="w-full h-3.5 bg-rosewater-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-rosewater-500 to-coral-500 rounded-full" style="width: 92%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span class="text-ink-800">IA en trabajos evaluados (2025)</span>
+                    <span class="text-rosewater-600 font-bold">88%</span>
+                  </div>
+                  <div class="w-full h-3.5 bg-rosewater-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-rosewater-400 rounded-full" style="width: 88%"></div>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-rosewater-100">
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span class="text-ink-800">Jóvenes en Perú con malestar emocional</span>
+                    <span class="text-coral-600 font-bold">32.3%</span>
+                  </div>
+                  <div class="w-full h-3.5 bg-rosewater-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-coral-500 rounded-full" style="width: 32.3%"></div>
+                  </div>
+                  <p class="text-[11px] text-ink-700 mt-1.5">Mujeres jóvenes reportan 30.2% frente a 22.9% en hombres (ENDES / INSM).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nota de Brecha Identificada -->
+            <div class="mt-6 p-4 rounded-2xl bg-cream-100 border border-rosewater-200">
+              <p class="text-xs font-bold text-coral-600 uppercase tracking-wide mb-1">Brecha Identificada</p>
+              <p class="text-xs sm:text-sm text-ink-800 leading-relaxed">
+                Aunque UNESCO, OMS, UNICEF Perú y MINSA publican guías valiosas, aún falta acercarlas a los universitarios mediante <strong>actividades prácticas y cercanas</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Panel Derecho: Tabla Interactiva con Pestañas -->
+          <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-rosewater-200 shadow-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <h3 class="text-xl font-bold text-ink-900">Base de Datos del Diagnóstico</h3>
+                <p class="text-xs sm:text-sm text-ink-700">Filtra los hallazgos por ámbito de estudio</p>
+              </div>
+
+              <!-- Pestañas de filtro -->
+              <div class="inline-flex p-1 rounded-2xl bg-cream-100 border border-rosewater-200 self-start sm:self-auto" role="tablist">
+                <button type="button" data-filter="todos" class="data-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-coral-600 shadow-sm transition-all">Todos</button>
+                <button type="button" data-filter="peru" class="data-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-ink-700 hover:text-ink-900 transition-all">Perú</button>
+                <button type="button" data-filter="global" class="data-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-ink-700 hover:text-ink-900 transition-all">Global</button>
+                <button type="button" data-filter="ia" class="data-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-ink-700 hover:text-ink-900 transition-all">Uso IA</button>
+              </div>
+            </div>
+
+            <!-- Tabla Responsiva -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-rosewater-200 text-[11px] uppercase tracking-wider text-ink-700">
+                    <th class="py-3 pr-3 font-bold">Hallazgo / Dato</th>
+                    <th class="py-3 px-2 font-bold">Población</th>
+                    <th class="py-3 px-2 font-bold">Año</th>
+                    <th class="py-3 pl-2 font-bold">Fuente</th>
+                  </tr>
+                </thead>
+                <tbody id="diagnostic-table-body" class="divide-y divide-rosewater-100 text-xs sm:text-sm">
+                  <!-- Rellenado dinámicamente vía JS para filtrado instantáneo -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque Destacado: El Verdadero Problema (Causas vs. Consecuencias) -->
+        <div class="bg-white rounded-[2rem] border border-rosewater-200 p-7 sm:p-10 shadow-card">
+          <div class="text-center max-w-3xl mx-auto mb-8">
+            <span class="inline-block px-3 py-1 rounded-full bg-coral-400/15 text-coral-600 text-xs font-bold uppercase tracking-wider mb-2">
+              Análisis Central
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-900 mb-3">
+              ¿Dónde se encuentra el verdadero problema?
+            </h3>
+            <p class="text-sm sm:text-base text-ink-700 bg-cream-100 border border-rosewater-200 rounded-2xl p-4 font-medium text-ink-900">
+              “Ausencia de criterios claros y hábitos reflexivos para decidir cuándo, cómo y con qué propósito utilizar la inteligencia artificial.”
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+            <!-- Causas -->
+            <div class="rounded-2xl bg-cream-100/80 border border-rosewater-200 p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-rosewater-200 text-rosewater-600 flex items-center justify-center font-bold">1</div>
+                <h4 class="font-heading font-bold text-lg text-ink-900">Principales Factores (Causas)</h4>
+              </div>
+              <ul class="space-y-3 text-sm text-ink-800">
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-coral-500 shrink-0"></span>
+                  <span>Presión constante por cumplir con tareas académicas.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-coral-500 shrink-0"></span>
+                  <span>Facilidad de obtener respuestas inmediatas sin esfuerzo.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-coral-500 shrink-0"></span>
+                  <span>Falta de orientación práctica sobre el uso responsable de IA.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-coral-500 shrink-0"></span>
+                  <span>Comparación constante con otros estudiantes y herramientas.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-coral-500 shrink-0"></span>
+                  <span>Hábitos de estudio poco equilibrados y gestión de tiempo.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Consecuencias -->
+            <div class="rounded-2xl bg-rosewater-100/50 border border-rosewater-200 p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-coral-500 text-white flex items-center justify-center font-bold">2</div>
+                <h4 class="font-heading font-bold text-lg text-ink-900">Posibles Consecuencias</h4>
+              </div>
+              <ul class="space-y-3 text-sm text-ink-800">
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-rosewater-500 shrink-0"></span>
+                  <span>Menor autonomía académica en la toma de decisiones.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-rosewater-500 shrink-0"></span>
+                  <span>Pérdida de confianza en las capacidades e ideas propias.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-rosewater-500 shrink-0"></span>
+                  <span>Menor práctica del pensamiento crítico y análisis profundo.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-rosewater-500 shrink-0"></span>
+                  <span>Dependencia funcional de la tecnología ante cualquier bloqueo.</span>
+                </li>
+                <li class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-rosewater-100">
+                  <span class="w-2 h-2 rounded-full bg-rosewater-500 shrink-0"></span>
+                  <span>Desequilibrio en los hábitos de estudio y descanso mental.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 5. HERRAMIENTA INTERACTIVA 1: TERMÓMETRO DE EQUILIBRIO IA             -->
+    <!-- ===================================================================== -->
+    <section id="autoevaluacion" class="py-16 sm:py-24 bg-white border-t border-rosewater-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="inline-block px-3.5 py-1.5 rounded-full bg-rosewater-100 text-coral-600 text-xs font-bold uppercase tracking-wider mb-3">
+            Herramienta Interactiva 1
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-900 mb-3">
+            Termómetro de Equilibrio IA
+          </h2>
+          <p class="text-base sm:text-lg text-ink-700">
+            Responde estas 5 preguntas rápidas sobre tu rutina universitaria y descubre cómo está tu relación actual con la inteligencia artificial.
+          </p>
+        </div>
+
+        <!-- Contenedor del Test -->
+        <div class="bg-cream-100/70 border border-rosewater-200 rounded-[2rem] p-6 sm:p-10 shadow-soft">
+          <form id="thermometer-form" class="space-y-7">
+            <!-- Pregunta 1 -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-rosewater-100 shadow-sm">
+              <p class="font-heading font-bold text-base sm:text-lg text-ink-900 mb-4">
+                1. Cuando recibes una tarea o ensayo universitario, ¿qué es lo primero que haces?
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="q1" value="3" class="peer sr-only" required />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Hago un esquema con mis propias ideas antes de abrir cualquier IA.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q1" value="2" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Le pido ideas generales a la IA para destrabarme y luego redacto yo.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q1" value="1" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Copio la consigna directo en la IA para que genere el borrador completo.
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-rosewater-100 shadow-sm">
+              <p class="font-heading font-bold text-base sm:text-lg text-ink-900 mb-4">
+                2. Al leer una respuesta generada por ChatGPT, Gemini o Claude, ¿cómo actúas?
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="q2" value="3" class="peer sr-only" required />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Contrasto los datos con lecturas del curso y adapto el tono a mi criterio.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q2" value="2" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Le doy una lectura rápida y cambio algunas palabras para que suene mejor.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q2" value="1" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Asumo que está correcto porque suena muy convincente y rápido.
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-rosewater-100 shadow-sm">
+              <p class="font-heading font-bold text-base sm:text-lg text-ink-900 mb-4">
+                3. ¿Cómo te sientes respecto a tus propias capacidades cuando ves lo rápido que responde la IA?
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="q3" value="3" class="peer sr-only" required />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Tranquilo/a: sé que es una calculadora de texto y mi criterio aporta el valor real.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q3" value="2" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    A veces siento presión por producir igual de rápido que mis compañeros.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q3" value="1" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Siento que mis ideas propias no son suficientes o me bloqueo sin ayuda.
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-rosewater-100 shadow-sm">
+              <p class="font-heading font-bold text-base sm:text-lg text-ink-900 mb-4">
+                4. En semanas de parciales o entregas finales, ¿cómo gestionas el uso de herramientas digitales?
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="q4" value="3" class="peer sr-only" required />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Organizo mis tiempos con pausas y uso la IA solo como tutor de repaso.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q4" value="2" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    La uso bastante para resumir lecturas largas cuando me falta tiempo.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q4" value="1" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Dejo todo para último momento confiando en que la IA me salvará.
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-rosewater-100 shadow-sm">
+              <p class="font-heading font-bold text-base sm:text-lg text-ink-900 mb-4">
+                5. Si hoy tuvieras que resolver un problema académico sin acceso a internet ni IA, ¿cómo reaccionarías?
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="q5" value="3" class="peer sr-only" required />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Con seguridad: tengo base y métodos propios para analizar y estructurar.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q5" value="2" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Me costaría arrancar un poco, pero lograría sacarlo adelante.
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="q5" value="1" class="peer sr-only" />
+                  <div class="p-3.5 rounded-xl border-2 border-rosewater-100 peer-checked:border-coral-500 peer-checked:bg-rosewater-100/50 hover:bg-cream-100 transition-all text-sm text-ink-800 font-medium h-full flex items-center">
+                    Sentiría mucha ansiedad y sensación de bloqueo mental.
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Botón Calcular -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <p id="form-warning" class="text-sm font-semibold text-coral-600 hidden">
+                Por favor, responde las 5 preguntas para conocer tu resultado.
+              </p>
+              <button type="submit" class="w-full sm:w-auto ml-auto px-8 py-4 rounded-2xl font-heading font-bold text-white bg-gradient-to-r from-rosewater-500 to-coral-500 hover:from-rosewater-600 hover:to-coral-600 shadow-soft transition-all cursor-pointer">
+                Ver mi Diagnóstico de Equilibrio
+              </button>
+            </div>
+          </form>
+
+          <!-- Resultado Dinámico del Termómetro -->
+          <div id="thermometer-result" class="hidden mt-8 pt-8 border-t-2 border-rosewater-200">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-rosewater-200 shadow-card">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                <div>
+                  <span id="result-badge" class="inline-block px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider mb-2">
+                    Nivel Detectado
+                  </span>
+                  <h3 id="result-title" class="text-2xl sm:text-3xl font-extrabold text-ink-900">
+                    Modo Equilibrado
+                  </h3>
+                </div>
+                <div class="text-left sm:text-right">
+                  <span class="text-xs font-semibold text-ink-700 block">Puntaje de Autonomía</span>
+                  <span id="result-score" class="font-heading font-extrabold text-3xl text-coral-500">12 / 15</span>
+                </div>
+              </div>
+
+              <!-- Barra visual del termómetro -->
+              <div class="w-full h-4 bg-cream-100 rounded-full overflow-hidden border border-rosewater-200 mb-6">
+                <div id="result-bar" class="progress-bar-fill h-full rounded-full bg-gradient-to-r from-rosewater-400 to-coral-500" style="width: 0%"></div>
+              </div>
+
+              <p id="result-description" class="text-sm sm:text-base text-ink-800 leading-relaxed mb-6">
+                Descripción personalizada aquí.
+              </p>
+
+              <div class="bg-cream-100 rounded-2xl p-5 border border-rosewater-200">
+                <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-coral-600 mb-3">
+                  Recomendaciones prácticas para ti:
+                </h4>
+                <ul id="result-tips" class="space-y-2.5 text-sm text-ink-800">
+                  <!-- Consejos dinámicos -->
+                </ul>
+              </div>
+
+              <div class="mt-6 flex justify-end">
+                <button type="button" id="reset-thermometer" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-ink-700 hover:text-coral-600 hover:bg-rosewater-100/60 transition-colors">
+                  ↻ Volver a realizar el test
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 6. HERRAMIENTA INTERACTIVA 2: CHECKLIST + GENERADOR DE COMPROMISO     -->
+    <!-- ===================================================================== -->
+    <section id="habitos" class="py-16 sm:py-24 bg-cream-100/70 border-t border-rosewater-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <span class="inline-block px-3.5 py-1.5 rounded-full bg-rosewater-100 text-coral-600 text-xs font-bold uppercase tracking-wider mb-3">
+            Herramienta Interactiva 2
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-900 mb-3">
+            Hábitos Digitales Saludables &amp; Compromiso
+          </h2>
+          <p class="text-base sm:text-lg text-ink-700">
+            Antes de abrir una IA para tu próximo trabajo, marca tu checklist de uso consciente y crea tu tarjeta personal de compromiso.
+          </p>
+        </div>
+
+        <div id="compromiso" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Columna Izquierda: Checklist Interactivo -->
+          <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-rosewater-200 shadow-card">
+            <div class="flex items-center justify-between mb-5">
+              <div>
+                <h3 class="text-xl font-bold text-ink-900">Checklist antes de usar IA</h3>
+                <p class="text-xs sm:text-sm text-ink-700">Selecciona los hábitos que aplicarás hoy</p>
+              </div>
+              <span id="checklist-counter" class="px-3 py-1.5 rounded-xl bg-rosewater-100 text-coral-600 font-heading font-bold text-xs">
+                3 / 6 activos
+              </span>
+            </div>
+
+            <div id="habit-checklist" class="space-y-3">
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" checked value="Intenté resolverlo y estructurar mis ideas primero por mi cuenta." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">1. Regla de los 15 minutos propios</span>
+                  <span class="text-xs text-ink-700">Intenté resolverlo y estructurar mis ideas primero por mi cuenta.</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" checked value="Verifiqué la información con pensamiento crítico y fuentes académicas." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">2. Filtro de pensamiento crítico</span>
+                  <span class="text-xs text-ink-700">Verifiqué la información con pensamiento crítico y fuentes académicas.</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" checked value="No comparo mi proceso humano con la velocidad de respuestas instantáneas." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">3. Cero comparación injusta</span>
+                  <span class="text-xs text-ink-700">No comparo mi proceso humano con la velocidad de respuestas instantáneas.</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" value="Defino un propósito claro antes de escribir un prompt (ej. tutoría, no copia)." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">4. Uso con propósito definido</span>
+                  <span class="text-xs text-ink-700">Defino un propósito claro antes de escribir un prompt (tutoría, no copia).</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" value="Respeto mis horarios de descanso y desconexión digital." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">5. Pausas y descanso mental</span>
+                  <span class="text-xs text-ink-700">Respeto mis horarios de descanso y desconexión digital.</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3.5 p-3.5 rounded-2xl border border-rosewater-100 hover:bg-cream-100/70 cursor-pointer transition-colors">
+                <input type="checkbox" value="Busco apoyo en docentes, amigos o familia cuando siento agobio." class="habit-checkbox mt-1 w-5 h-5 rounded accent-coral-500 cursor-pointer" />
+                <div>
+                  <span class="font-semibold text-sm text-ink-900 block">6. Conexión humana real</span>
+                  <span class="text-xs text-ink-700">Busco apoyo en docentes, amigos o familia cuando siento agobio.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Generador de Tarjeta de Compromiso Digital -->
+          <div class="lg:col-span-6 space-y-6">
+            <!-- Controles de personalización -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-rosewater-200 shadow-card">
+              <h3 class="text-xl font-bold text-ink-900 mb-4">Personaliza tu Tarjeta de Compromiso</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="student-name" class="block text-xs font-bold uppercase tracking-wider text-ink-700 mb-1.5">Tu Nombre o Alias</label>
+                  <input type="text" id="student-name" placeholder="Ej. Camila / Estudiante UNMSM" maxlength="36" class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-rosewater-200 text-sm text-ink-900 focus:outline-none focus:border-coral-500" />
+                </div>
+                <div>
+                  <label for="student-career" class="block text-xs font-bold uppercase tracking-wider text-ink-700 mb-1.5">Carrera / Ciclo (Opcional)</label>
+                  <input type="text" id="student-career" placeholder="Ej. Psicología • IV Ciclo" maxlength="36" class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-rosewater-200 text-sm text-ink-900 focus:outline-none focus:border-coral-500" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Vista Previa de la Tarjeta Visual -->
+            <div id="pledge-card" class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-rosewater-500 via-coral-500 to-rosewater-600 text-white p-7 sm:p-9 shadow-soft">
+              <!-- Círculos decorativos -->
+              <div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-white/10 pointer-events-none"></div>
+              <div class="absolute -left-10 -bottom-12 w-36 h-36 rounded-full bg-white/10 pointer-events-none"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-center justify-between gap-2 mb-5">
+                  <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-bold tracking-wide">
+                    MANIFIESTO ESTUDIANTIL • MENTE EN MODO IA
+                  </span>
+                  <span id="pledge-date" class="text-xs font-medium text-white/85">2025</span>
+                </div>
+
+                <p class="font-heading font-extrabold text-2xl sm:text-3xl leading-tight mb-2">
+                  “La tecnología me ayuda, mi mente decide.”
+                </p>
+
+                <div class="my-5 pb-4 border-b border-white/25">
+                  <p class="text-xs uppercase tracking-wider text-white/80">Compromiso firmado por:</p>
+                  <p id="preview-name" class="font-heading font-bold text-xl mt-0.5">Estudiante Universitario/a</p>
+                  <p id="preview-career" class="text-xs text-white/90">Aprendizaje autónomo y bienestar digital</p>
+                </div>
+
+                <p class="text-xs font-bold uppercase tracking-wider text-white/90 mb-2.5">Mis hábitos elegidos:</p>
+                <ul id="preview-habits" class="space-y-2 text-xs sm:text-sm text-white/95">
+                  <!-- Actualizado dinámicamente -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- Botones de Acción: Descargar Imagen PNG y Copiar Texto -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button type="button" id="download-pledge-btn" class="flex-1 px-6 py-3.5 rounded-2xl font-heading font-bold text-white bg-ink-900 hover:bg-ink-800 shadow-card transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Descargar Tarjeta (PNG)</span>
+              </button>
+
+              <button type="button" id="copy-pledge-btn" class="flex-1 px-6 py-3.5 rounded-2xl font-heading font-bold text-ink-800 bg-white border-2 border-rosewater-200 hover:border-coral-400 hover:bg-rosewater-100/40 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <svg class="w-5 h-5 text-coral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                </svg>
+                <span id="copy-btn-label">Copiar Compromiso</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 7. METODOLOGÍA Y ENFOQUE DEL PROYECTO                                 -->
+    <!-- ===================================================================== -->
+    <section class="py-16 sm:py-20 bg-white border-t border-rosewater-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-cream-100/70 border border-rosewater-200 rounded-[2rem] p-7 sm:p-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5">
+              <span class="inline-block px-3 py-1 rounded-full bg-rosewater-100 text-coral-600 text-xs font-bold uppercase tracking-wider mb-3">
+                Metodología y Transparencia
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-900 mb-3">
+                ¿Cómo construimos este proyecto?
+              </h2>
+              <p class="text-sm sm:text-base text-ink-700 leading-relaxed">
+                Nuestro objetivo fue comprender la relación real entre la inteligencia artificial y la salud mental universitaria antes de diseñar una solución social práctica y cercana.
+              </p>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-sm">
+                <h3 class="font-bold text-ink-900 text-base mb-2">Aspectos Investigados</h3>
+                <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+                  Ansiedad académica, dependencia tecnológica, apoyo emocional mediante chatbots, soledad, seguridad y bienestar.
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-sm">
+                <h3 class="font-bold text-ink-900 text-base mb-2">Fuentes Institucionales</h3>
+                <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+                  Revisión preliminar de estudios científicos y marcos de <strong>UNESCO, OMS, UNICEF Perú, MINSA</strong> e <strong>INSM</strong>.
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-5 border border-rosewater-100 shadow-sm">
+                <h3 class="font-bold text-ink-900 text-base mb-2">Uso Ético de IA</h3>
+                <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+                  Herramientas como Claude, ChatGPT y Grok apoyaron la organización de datos, siempre bajo criterio y validación humana.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- 8. FOOTER CON LÍNEAS DE AYUDA Y NOTA EDUCATIVA                        -->
+  <!-- ===================================================================== -->
+  <footer class="bg-ink-900 text-cream-100 pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+        <!-- Marca -->
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-rosewater-400 to-coral-500 flex items-center justify-center text-white font-bold">
+              IA
+            </div>
+            <span class="font-heading font-extrabold text-xl text-white">Mente en Modo IA</span>
+          </div>
+          <p class="text-sm text-cream-200/80 leading-relaxed max-w-md mb-4">
+            “La tecnología te ayuda, tu mente decide.” Iniciativa social orientada a fortalecer la salud mental, el pensamiento crítico y la autonomía digital en jóvenes universitarios.
+          </p>
+          <p class="text-xs text-rosewater-300 font-medium">
+            Proyecto educativo y de concientización social.
+          </p>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div class="md:col-span-3">
+          <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">Navegación</h3>
+          <ul class="space-y-2.5 text-sm text-cream-200/80">
+            <li><a href="#inicio" class="hover:text-rosewater-300 transition-colors">Inicio</a></li>
+            <li><a href="#proposito" class="hover:text-rosewater-300 transition-colors">Justificación y Público</a></li>
+            <li><a href="#diagnostico" class="hover:text-rosewater-300 transition-colors">Datos y Diagnóstico</a></li>
+            <li><a href="#autoevaluacion" class="hover:text-rosewater-300 transition-colors">Termómetro de Equilibrio</a></li>
+            <li><a href="#habitos" class="hover:text-rosewater-300 transition-colors">Checklist y Compromiso</a></li>
+          </ul>
+        </div>
+
+        <!-- Orientación y Líneas de Ayuda -->
+        <div class="md:col-span-4">
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+            <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-rosewater-300 mb-2">
+              ¿Necesitas conversar con alguien?
+            </h3>
+            <p class="text-xs text-cream-200/85 leading-relaxed mb-3">
+              Este sitio tiene fines educativos y preventivos; <strong>no reemplaza la atención psicológica profesional</strong>. Si sientes ansiedad, agobio o malestar emocional, busca apoyo especializado:
+            </p>
+            <div class="bg-coral-500/20 border border-coral-400/30 rounded-xl p-3">
+              <p class="text-xs font-bold text-white">Perú • Línea 113 Salud (Opción 5)</p>
+              <p class="text-[11px] text-cream-200/90 mt-0.5">Orientación gratuita en salud mental del MINSA, disponible las 24 horas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-200/60">
+        <p>© <span id="current-year">2025</span> Proyecto Social “Mente en Modo IA”. Todos los derechos reservados.</p>
+        <p>Diseñado para promover el bienestar estudiantil y la ética digital.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notificación Toast flotante (reemplaza alert()) -->
+  <div id="toast-notification" class="fixed bottom-5 right-5 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
+    <div class="bg-ink-900 text-white px-5 py-3.5 rounded-2xl shadow-xl border border-rosewater-400/30 flex items-center gap-3 text-sm font-medium">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+      <span id="toast-message">Acción completada</span>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 9. LÓGICA JAVASCRIPT AUTOCONTENIDA                                    -->
+  <!-- ===================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Establecer año actual
+      const yearEl = document.getElementById('current-year');
+      const pledgeDateEl = document.getElementById('pledge-date');
+      const currentYear = new Date().getFullYear();
+      if (yearEl) yearEl.textContent = currentYear;
+      if (pledgeDateEl) {
+        const today = new Date();
+        pledgeDateEl.textContent = today.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+
+      // -----------------------------------------------------------------------
+      // A. MENÚ MÓVIL RESPONSIVO
+      // -----------------------------------------------------------------------
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      }
+
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+
+      // -----------------------------------------------------------------------
+      // B. TABLA INTERACTIVA DE DIAGNÓSTICO (FILTRO POR ÁMBITO)
+      // -----------------------------------------------------------------------
+      const diagnosticData = [
+        {
+          category: 'global',
+          finding: '1 de cada 7 jóvenes (14.3%) presenta algún trastorno mental.',
+          population: 'Adolescentes 10–19 años',
+          year: '2025',
+          source: 'OMS'
+        },
+        {
+          category: 'global',
+          finding: 'Trastornos de ansiedad afectan al 4.1% (10–14 años) y 5.3% (15–19 años).',
+          population: 'Adolescentes 10–19 años',
+          year: '2025',
+          source: 'OMS'
+        },
+        {
+          category: 'peru',
+          finding: '32.3% reportó algún problema de salud mental o emocional en los últimos 12 meses.',
+          population: 'Jóvenes Perú 15–29 años',
+          year: '2022–2023',
+          source: 'ENDES / INSM'
+        },
+        {
+          category: 'peru',
+          finding: 'Mujeres jóvenes reportaron más problemas de salud mental (30.2% vs 22.9% hombres).',
+          population: 'Jóvenes Perú 15–29 años',
+          year: '2022–2023',
+          source: 'ENDES / INSM'
+        },
+        {
+          category: 'peru',
+          finding: '1,007,470 atenciones por trastornos mentales (245,950 por ansiedad y 146,737 por depresión).',
+          population: 'Establecimientos MINSA (Ene–Jul)',
+          year: '2024',
+          source: 'MINSA Perú'
+        },
+        {
+          category: 'ia',
+          finding: '92% usó IA en alguna forma académica (en 2024 la cifra era 66%).',
+          population: 'Universitarios pregrado',
+          year: '2025',
+          source: 'HEPI / Kortext'
+        },
+        {
+          category: 'ia',
+          finding: '88% empleó IA generativa directamente en trabajos evaluados.',
+          population: 'Universitarios pregrado',
+          year: '2025',
+          source: 'HEPI / Kortext'
+        },
+        {
+          category: 'ia',
+          finding: 'Orientaciones globales para proteger la autonomía y agencia humana en educación.',
+          population: 'Comunidad educativa',
+          year: '2023',
+          source: 'UNESCO'
+        }
+      ];
+
+      const tableBody = document.getElementById('diagnostic-table-body');
+      const tabButtons = document.querySelectorAll('.data-tab-btn');
+
+      function renderTable(filter = 'todos') {
+        const filtered = filter === 'todos'
+          ? diagnosticData
+          : diagnosticData.filter(item => item.category === filter);
+
+        tableBody.innerHTML = filtered.map(row => `
+          <tr class="hover:bg-cream-100/60 transition-colors">
+            <td class="py-3.5 pr-3 text-ink-900 font-medium leading-snug">${row.finding}</td>
+            <td class="py-3.5 px-2 text-ink-700 whitespace-nowrap">${row.population}</td>
+            <td class="py-3.5 px-2 text-ink-700 font-semibold">${row.year}</td>
+            <td class="py-3.5 pl-2">
+              <span class="inline-block px-2.5 py-1 rounded-lg bg-rosewater-100/80 text-coral-600 font-bold text-[11px] whitespace-nowrap">
+                ${row.source}
+              </span>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach(b => {
+            b.classList.remove('bg-white', 'text-coral-600', 'shadow-sm', 'font-bold');
+            b.classList.add('text-ink-700', 'font-semibold');
+          });
+          btn.classList.add('bg-white', 'text-coral-600', 'shadow-sm', 'font-bold');
+          btn.classList.remove('text-ink-700', 'font-semibold');
+          renderTable(btn.dataset.filter);
+        });
+      });
+
+      renderTable('todos');
+
+      // -----------------------------------------------------------------------
+      // C. HERRAMIENTA 1: TERMÓMETRO DE EQUILIBRIO IA
+      // -----------------------------------------------------------------------
+      const thermometerForm = document.getElementById('thermometer-form');
+      const resultContainer = document.getElementById('thermometer-result');
+      const formWarning = document.getElementById('form-warning');
+      const resetBtn = document.getElementById('reset-thermometer');
+
+      thermometerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(thermometerForm);
+        let total = 0;
+        let answered = 0;
+
+        for (let i = 1; i <= 5; i++) {
+          const val = formData.get(`q${i}`);
+          if (val) {
+            total += parseInt(val, 10);
+            answered++;
+          }
+        }
+
+        if (answered < 5) {
+          formWarning.classList.remove('hidden');
+          return;
+        }
+        formWarning.classList.add('hidden');
+
+        // Determinar perfil según puntaje (5 a 15)
+        const badgeEl = document.getElementById('result-badge');
+        const titleEl = document.getElementById('result-title');
+        const scoreEl = document.getElementById('result-score');
+        const barEl = document.getElementById('result-bar');
+        const descEl = document.getElementById('result-description');
+        const tipsEl = document.getElementById('result-tips');
+
+        scoreEl.textContent = `${total} / 15 pts`;
+        const percentage = Math.round((total / 15) * 100);
+
+        let profile = {};
+
+        if (total >= 13) {
+          profile = {
+            badge: 'Nivel Óptimo • Alta Autonomía',
+            badgeClass: 'bg-emerald-100 text-emerald-700',
+            title: 'Modo Autónomo y Consciente',
+            description: '¡Excelente equilibrio! Usas la inteligencia artificial como una aliada estratégica sin ceder tu criterio propio ni dejar que la inmediatez afecte tu seguridad personal.',
+            tips: [
+              'Comparte tus métodos de organización y verificación crítica con tus compañeros de estudio.',
+              'Mantén tus pausas activas lejos de las pantallas para cuidar tu descanso mental.',
+              'Sigue cuestionando las respuestas de la IA con fuentes académicas confiables.'
+            ]
+          };
+        } else if (total >= 9) {
+          profile = {
+            badge: 'Nivel Intermedio • En Construcción',
+            badgeClass: 'bg-amber-100 text-amber-800',
+            title: 'Modo Equilibrado (Con margen de mejora)',
+            description: 'Aprovechas bien la IA para agilizar tus estudios, pero en momentos de estrés o falta de tiempo corres el riesgo de depender de sus respuestas o compararte con su rapidez.',
+            tips: [
+              'Aplica la regla de los 15 minutos: escribe tus propias ideas en papel antes de abrir un chat.',
+              'Usa la IA como tutor para que te haga preguntas sobre un tema, en lugar de pedirle el texto resuelto.',
+              'Recuerda que aprender toma tiempo: no midas tu valor por la velocidad de un algoritmo.'
+            ]
+          };
+        } else {
+          profile = {
+            badge: 'Alerta Preventiva • Recupera el Timón',
+            badgeClass: 'bg-rosewater-200 text-rosewater-700',
+            title: 'Modo Piloto Automático',
+            description: 'Es probable que la presión académica te esté llevando a delegar demasiado en la IA, lo cual puede aumentar tu ansiedad y debilitar la confianza en tus propias capacidades.',
+            tips: [
+              'Empieza hoy con una tarea pequeña sin usar IA: redescubre lo capaz que eres de estructurar ideas.',
+              'Divide tus entregas grandes en bloques cortos para evitar la urgencia de último minuto.',
+              'Conversa con tus docentes o compañeros sobre tus dudas; pedir ayuda humana reduce mucho el agobio.'
+            ]
+          };
+        }
+
+        badgeEl.textContent = profile.badge;
+        badgeEl.className = `inline-block px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider mb-2 ${profile.badgeClass}`;
+        titleEl.textContent = profile.title;
+        descEl.textContent = profile.description;
+        tipsEl.innerHTML = profile.tips.map(t => `
+          <li class="flex items-start gap-2.5">
+            <span class="text-coral-500 font-bold mt-0.5">•</span>
+            <span>${t}</span>
+          </li>
+        `).join('');
+
+        resultContainer.classList.remove('hidden');
+        setTimeout(() => {
+          barEl.style.width = `${percentage}%`;
+        }, 60);
+
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      resetBtn.addEventListener('click', () => {
+        thermometerForm.reset();
+        resultContainer.classList.add('hidden');
+        document.getElementById('result-bar').style.width = '0%';
+      });
+
+      // -----------------------------------------------------------------------
+      // D. HERRAMIENTA 2: CHECKLIST & GENERADOR DE TARJETA DE COMPROMISO
+      // -----------------------------------------------------------------------
+      const habitCheckboxes = document.querySelectorAll('.habit-checkbox');
+      const checklistCounter = document.getElementById('checklist-counter');
+      const studentNameInput = document.getElementById('student-name');
+      const studentCareerInput = document.getElementById('student-career');
+      const previewName = document.getElementById('preview-name');
+      const previewCareer = document.getElementById('preview-career');
+      const previewHabits = document.getElementById('preview-habits');
+
+      function updatePledgePreview() {
+        const checked = Array.from(habitCheckboxes).filter(cb => cb.checked);
+        checklistCounter.textContent = `${checked.length} / ${habitCheckboxes.length} activos`;
+
+        const nameVal = studentNameInput.value.trim();
+        const careerVal = studentCareerInput.value.trim();
+
+        previewName.textContent = nameVal || 'Estudiante Universitario/a';
+        previewCareer.textContent = careerVal || 'Aprendizaje autónomo y bienestar digital';
+
+        if (checked.length === 0) {
+          previewHabits.innerHTML = `<li class="italic text-white/80">Marca al menos un hábito en el checklist para agregarlo a tu manifiesto.</li>`;
+        } else {
+          previewHabits.innerHTML = checked.map(cb => `
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-white">✓</span>
+              <span>${cb.value}</span>
+            </li>
+          `).join('');
+        }
+      }
+
+      habitCheckboxes.forEach(cb => cb.addEventListener('change', updatePledgePreview));
+      studentNameInput.addEventListener('input', updatePledgePreview);
+      studentCareerInput.addEventListener('input', updatePledgePreview);
+      updatePledgePreview();
+
+      // Función de notificación Toast
+      function showToast(msg) {
+        const toast = document.getElementById('toast-notification');
+        const toastMsg = document.getElementById('toast-message');
+        toastMsg.textContent = msg;
+        toast.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          toast.classList.remove('translate-y-4', 'opacity-0');
+        });
+        setTimeout(() => {
+          toast.classList.add('translate-y-4', 'opacity-0');
+          setTimeout(() => toast.classList.add('hidden'), 300);
+        }, 3200);
+      }
+
+      // Copiar Compromiso al Portapapeles (compatible con iframe/GitHub Pages)
+      const copyPledgeBtn = document.getElementById('copy-pledge-btn');
+      copyPledgeBtn.addEventListener('click', () => {
+        const nameText = previewName.textContent;
+        const careerText = previewCareer.textContent;
+        const checkedHabits = Array.from(habitCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => `✓ ${cb.value}`)
+          .join('\n');
+
+        const textToCopy = `🧠 MENTE EN MODO IA — "La tecnología me ayuda, mi mente decide"\n\nCompromiso de: ${nameText} (${careerText})\n\nMis hábitos digitales saludables:\n${checkedHabits || '✓ Uso responsable y pensamiento crítico activo'}\n\n#MenteEnModoIA #SaludMentalUniversitaria`;
+
+        const tempTextarea = document.createElement('textarea');
+        tempTextarea.value = textToCopy;
+        tempTextarea.style.position = 'fixed';
+        tempTextarea.style.opacity = '0';
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        try {
+          document.execCommand('copy');
+          showToast('¡Compromiso copiado al portapapeles!');
+        } catch (err) {
+          showToast('No se pudo copiar automáticamente.');
+        }
+        document.body.removeChild(tempTextarea);
+      });
+
+      // Descargar Tarjeta Visual como Imagen PNG usando HTML5 Canvas puro
+      const downloadPledgeBtn = document.getElementById('download-pledge-btn');
+      downloadPledgeBtn.addEventListener('click', () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1080;
+        canvas.height = 1080;
+        const ctx = canvas.getContext('2d');
+
+        // Fondo degradado pastel coral/rosa
+        const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+        grad.addColorStop(0, '#F43F5E');
+        grad.addColorStop(0.55, '#F25C54');
+        grad.addColorStop(1, '#E11D48');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 1080, 1080);
+
+        // Círculos suaves decorativos
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.beginPath();
+        ctx.arc(920, 160, 240, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(140, 940, 200, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Marco interior limpio
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(56, 56, 968, 968);
+
+        // Etiqueta superior
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = 'bold 24px sans-serif';
+        ctx.fillText('PROYECTO SOCIAL • MENTE EN MODO IA', 96, 130);
+
+        // Lema principal
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 54px sans-serif';
+        ctx.fillText('“La tecnología me ayuda,', 96, 225);
+        ctx.fillText('mi mente decide.”', 96, 292);
+
+        // Línea divisoria
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(96, 340);
+        ctx.lineTo(984, 340);
+        ctx.stroke();
+
+        // Datos del estudiante
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+        ctx.font = 'bold 22px sans-serif';
+        ctx.fillText('COMPROMISO FIRMADO POR:', 96, 395);
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 42px sans-serif';
+        ctx.fillText(previewName.textContent, 96, 448);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = '26px sans-serif';
+        ctx.fillText(previewCareer.textContent, 96, 490);
+
+        // Lista de hábitos
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = 'bold 24px sans-serif';
+        ctx.fillText('MIS HÁBITOS DIGITALES SALUDABLES:', 96, 570);
+
+        const selectedHabits = Array.from(habitCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+
+        const habitsToDraw = selectedHabits.length > 0
+          ? selectedHabits
+          : ['Mantengo mi pensamiento crítico y autonomía académica.'];
+
+        ctx.font = '25px sans-serif';
+        let currentY = 625;
+
+        // Función auxiliar para envolver texto largo en Canvas
+        function wrapText(text, x, y, maxWidth, lineHeight) {
+          const words = text.split(' ');
+          let line = '✓ ';
+          for (let n = 0; n < words.length; n++) {
+            const testLine = line + words[n] + ' ';
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth && n > 0) {
+              ctx.fillText(line, x, y);
+              line = '   ' + words[n] + ' ';
+              y += lineHeight;
+            } else {
+              line = testLine;
+            }
+          }
+          ctx.fillText(line, x, y);
+          return y + lineHeight + 12;
+        }
+
+        habitsToDraw.slice(0, 5).forEach(habit => {
+          currentY = wrapText(habit, 96, currentY, 880, 34);
+        });
+
+        // Pie de tarjeta
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.font = '22px sans-serif';
+        ctx.fillText('Salud Mental & Uso Responsable de la IA • Universitarios 18–25 años', 96, 980);
+
+        // Descargar archivo PNG
+        const link = document.createElement('a');
+        link.download = 'compromiso-mente-en-modo-ia.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        showToast('¡Tarjeta descargada como imagen PNG!');
+      });
+    });
+  </script>
+</body>
+</html>
